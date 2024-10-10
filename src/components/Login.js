@@ -1,11 +1,23 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import {checkValidateData} from "../utils/Validate"
 
 const Login = () => {
   const [changeName, setChangeName] = useState(true);
+  const [error,setError] = useState(null);
+  const email = useRef(null);
+  const password = useRef(null);
+  const phno = useRef(null);
   const clickHandle = (event) => {
     event.preventDefault();
     setChangeName(!changeName);
   };
+  const validationHandle =(event)=>{
+    event.preventDefault();
+    const phone= phno.current ? phno.current.value : null;
+    const message = checkValidateData(email.current.value,password.current.value,phone)
+    console.log(message)
+    setError(message);
+  }
 
   return (
     <div className="relative flex items-center justify-center h-screen bg-gray-100">
@@ -34,6 +46,7 @@ const Login = () => {
 
           <label className="block text-white font-bold  mb-2">Email</label>
           <input
+            ref={email}
             type="email"
             placeholder="Enter your email"
             className="w-full p-3 border rounded-lg"
@@ -45,19 +58,21 @@ const Login = () => {
                 Phone Number
               </label>
               <input
+                ref={phno}
                 type="number"
                 placeholder="Enter your Phone Number"
                 className="w-full p-3 border rounded-lg"
               />
             </>
           )}
-        
+
           {!changeName && (
             <>
               <label className="block text-white font-bold  mb-2">
                 Enter Password
               </label>
               <input
+                ref={password}
                 type="password"
                 placeholder="Enter your Password"
                 className="w-full p-3 border rounded-lg"
@@ -68,13 +83,18 @@ const Login = () => {
             {changeName ? "Password" : "Confirm Password"}
           </label>
           <input
+            ref={password}
             type="password"
             placeholder="Enter your password"
             className="w-full p-3  border rounded-lg"
           />
         </div>
+        <h3 className="font-bold text-red-700">{error}</h3>
         <div className="py-8">
-          <button className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-white font-semibold hover:text-red-700 transition duration-200">
+          <button
+            className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-white font-semibold hover:text-red-700 transition duration-200"
+            onClick={validationHandle}
+          >
             {changeName ? "Sign In" : "Register here"}
           </button>
           <button className=" font-semibold  text-lg py-2 text-white hover:text-red-500">
