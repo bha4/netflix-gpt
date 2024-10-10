@@ -1,4 +1,12 @@
+import { useState } from "react";
+
 const Login = () => {
+  const [changeName, setChangeName] = useState(true);
+  const clickHandle = (event) => {
+    event.preventDefault();
+    setChangeName(!changeName);
+  };
+
   return (
     <div className="relative flex items-center justify-center h-screen bg-gray-100">
       <img
@@ -6,34 +14,82 @@ const Login = () => {
         alt="Bg-image"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
-      <form className="relative z-10 bg-transparent max-w-sm w-full hover:shadow-2xl ">
-        <h2 className="text-2xl font-bold text-red-50 text-center mb-6">Sign In</h2>
-
+      <form className="relative z-10 bg-black p-8 rounded-lg shadow-md max-w-sm w-full bg-opacity-70">
+        <h2 className="text-2xl font-bold text-red-50 text-center mb-6">
+          {changeName ? "Sign In" : "Sign Up"}
+        </h2>
         <div className="mb-4">
-          <label className="block text-white font-bold  mb-2" htmlFor="email">
-            Email
-          </label>
+          {!changeName && (
+            <>
+              <label className="block text-white font-bold  mb-2">
+                User Name
+              </label>
+              <input
+                type="text"
+                placeholder="Enter your User Name"
+                className="w-full p-3 border rounded-lg"
+              />
+            </>
+          )}
+
+          <label className="block text-white font-bold  mb-2">Email</label>
           <input
             type="email"
-            id="email"
             placeholder="Enter your email"
             className="w-full p-3 border rounded-lg"
           />
-        </div>
-        <div className="mb-4">
-          <label className="block text-white font-bold mb-2" htmlFor="password">
-            Password
+
+          {!changeName && (
+            <>
+              <label className="block text-white font-bold  mb-2">
+                Phone Number
+              </label>
+              <input
+                type="number"
+                placeholder="Enter your Phone Number"
+                className="w-full p-3 border rounded-lg"
+              />
+            </>
+          )}
+        
+          {!changeName && (
+            <>
+              <label className="block text-white font-bold  mb-2">
+                Enter Password
+              </label>
+              <input
+                type="password"
+                placeholder="Enter your Password"
+                className="w-full p-3 border rounded-lg"
+              />
+            </>
+          )}
+          <label className="block text-white font-bold mb-2">
+            {changeName ? "Password" : "Confirm Password"}
           </label>
           <input
             type="password"
-            id="password"
             placeholder="Enter your password"
-            className="w-full p-3 border rounded-lg"
+            className="w-full p-3  border rounded-lg"
           />
         </div>
-        <button className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-red-900 transition duration-200">
-          Sign In
-        </button>
+        <div className="py-8">
+          <button className="w-full bg-red-500 text-white py-3 rounded-lg hover:bg-white font-semibold hover:text-red-700 transition duration-200">
+            {changeName ? "Sign In" : "Register here"}
+          </button>
+          <button className=" font-semibold  text-lg py-2 text-white hover:text-red-500">
+            {changeName && "Forget Password?"}
+          </button>
+          <p className="text-white pt-5 px-4">
+            {changeName ? "New to Netflix?  " : "Already you are a User! "}
+            <button
+              className="font-bold decoration-solid hover:text-red-700 text-lg"
+              onClick={clickHandle}
+            >
+              {changeName ? "Sign up now" : "Sign In now"}
+            </button>
+          </p>
+        </div>
       </form>
     </div>
   );
