@@ -11,7 +11,13 @@
 10. created Store with redux 
 11. implemented sign out through firebase api
 12. update profile api
-13. 
+13. hardcoded url to the constant files 
+14. register TMDB API
+15. get Data from TMDB (movie list)
+16. custom hooks for nowPlayingMovies
+17. create movieSlice and update in store
+18. custom Hook for movieTrailer and updated that in store
+19. Embeded the youtube Video in our app
 
 
 
