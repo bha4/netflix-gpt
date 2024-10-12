@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { checkValidateData } from "../utils/Validate";
-import { useNavigate } from "react-router-dom";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -18,8 +17,7 @@ const Login = () => {
   const password = useRef(null);
   const phno = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const clickHandle = (event) => {
     event.preventDefault();
@@ -35,7 +33,6 @@ const Login = () => {
       password.current.value,
       phone
     );
-    console.log(message);
     setError(message);
     if (message) return;
     if (!changeName) {
@@ -60,10 +57,9 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               );
-              navigate("/browse");
             })
             .catch((error) => {
-              setError(error)
+              setError(error);
             });
         })
         .catch((error) => {
@@ -79,7 +75,6 @@ const Login = () => {
       )
         .then((userCredential) => {
           const user = userCredential.user;
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
