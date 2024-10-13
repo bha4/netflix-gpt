@@ -45,7 +45,7 @@ const Header = () => {
         alt="logo"
       />
       {user && (
-        <div className="mt-5 px-5">
+        <div className="mt-5 pr-16">
           <button onClick={clickHandleSignout}>
             <img
               className="w-14 h-18 "

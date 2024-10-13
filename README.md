@@ -18,6 +18,8 @@
 17. create movieSlice and update in store
 18. custom Hook for movieTrailer and updated that in store
 19. Embeded the youtube Video in our app
+20. secondary container with movie list
+21. created custom hook
 
 
 
@@ -37,3 +39,5 @@
 - Netflixgpt        
         - search bar
         - according to search movie suggetion   
+
+        

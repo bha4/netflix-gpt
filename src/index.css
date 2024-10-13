@@ -1,3 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* Custom scrollbar hide utility */
+.scrollbar-none::-webkit-scrollbar {
+  display: none; /* For Chrome, Safari, and Opera */
+}
+
+.scrollbar-none {
+  scrollbar-width: none; /* For Firefox */
+}
