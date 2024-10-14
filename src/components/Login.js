@@ -9,6 +9,7 @@ import { auth } from "../utils/firebase";
 import Header from "./Header";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import { BG_URL } from "../utils/constants";
 
 const Login = () => {
   const [changeName, setChangeName] = useState(true);
@@ -89,7 +90,7 @@ const Login = () => {
       <Header />
       <div className="relative flex items-center justify-center h-screen bg-gray-100">
         <img
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/f272782d-cf96-4988-a675-6db2afd165e0/web/IN-en-20241008-TRIFECTA-perspective_b28b640f-cee0-426b-ac3a-7c000d3b41b7_small.jpg"
+          src={BG_URL}
           alt="Bg-image"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />

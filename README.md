@@ -20,6 +20,10 @@
 19. Embeded the youtube Video in our app
 20. secondary container with movie list
 21. created custom hook
+22. gpt search bar
+23. added multi language feature in out gpt page
+24. integrate gpt api (OPEN API KEY)
+
 
 
 
