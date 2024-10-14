@@ -24,3 +24,5 @@ export const LANGUAGES = [
   { identifier: "hindi", name: "HINDI" },
   { identifier: "spanish", name: "SPANISH" },
 ];
+
+export const GENERATIVE_AI_API_KEY = "AIzaSyD2kXhaTpEWjk0RGIgHEJhk0oFh09dAcFI";
